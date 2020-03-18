@@ -32,5 +32,6 @@ namespace TrashCollector.Data
                 CustomerId = 1
             }); ;
         }
+        public DbSet<TrashCollector.Models.Customer> Customer { get; set; }
     }
 }

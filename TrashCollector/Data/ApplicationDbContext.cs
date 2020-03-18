@@ -22,15 +22,15 @@ namespace TrashCollector.Data
             .HasData(
             new Employee
             {
-
-            });
+                EmployeeId = 1
+            }); ;
 
             builder.Entity<Customer>()
             .HasData(
             new Customer
             {
-
-            });
+                CustomerId = 1
+            }); ;
         }
     }
 }

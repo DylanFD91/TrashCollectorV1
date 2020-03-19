@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using TrashCollector.ActionFilters;
 using TrashCollector.Data;
 using TrashCollector.Models;
 
@@ -20,6 +21,7 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Employees
+        [ServiceFilter(typeof(GlobalRouting))]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Employee.ToListAsync());

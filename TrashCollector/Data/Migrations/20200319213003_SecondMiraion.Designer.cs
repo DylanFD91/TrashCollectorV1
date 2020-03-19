@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrashCollector.Data;
 
 namespace TrashCollector.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200319213003_SecondMiraion")]
+    partial class SecondMiraion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,22 +46,6 @@ namespace TrashCollector.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "1",
-                            ConcurrencyStamp = "9b9c94df-3442-47aa-9715-b992d6f08cd7",
-                            Name = "Employee",
-                            NormalizedName = "EMPLOYEE"
-                        },
-                        new
-                        {
-                            Id = "2",
-                            ConcurrencyStamp = "21d796e6-41fc-4053-a578-eaa6f92bd544",
-                            Name = "Customer",
-                            NormalizedName = "CUSTOMER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -264,6 +250,15 @@ namespace TrashCollector.Data.Migrations
                     b.HasIndex("IdentityUserId");
 
                     b.ToTable("Customer");
+
+                    b.HasData(
+                        new
+                        {
+                            CustomerId = 1,
+                            BalanceOwed = 0.0,
+                            PickUpDay = 0,
+                            ZipCode = 0
+                        });
                 });
 
             modelBuilder.Entity("TrashCollector.Models.Employee", b =>
@@ -282,6 +277,12 @@ namespace TrashCollector.Data.Migrations
                     b.HasKey("EmployeeId");
 
                     b.ToTable("Employee");
+
+                    b.HasData(
+                        new
+                        {
+                            EmployeeId = 1
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

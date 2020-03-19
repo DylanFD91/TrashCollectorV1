@@ -74,6 +74,7 @@ namespace TrashCollector.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             var roles = _roleManager.Roles;
+            // roles dropdown being created
             Roles = new SelectList(roles, "Name", "Name");
         }
 
@@ -106,6 +107,7 @@ namespace TrashCollector.Areas.Identity.Pages.Account
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
+                         // RedirectToAction()
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email });
                     }
                     else

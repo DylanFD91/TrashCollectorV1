@@ -14,10 +14,13 @@ namespace TrashCollector.Models
         public int CustomerId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        //public double WalletBallence { get; set; }
         public DayOfWeek PickUpDay { get; set; }
         public string Address { get; set; }
         public int ZipCode { get; set; }
+        public DateTime OneTimePickUp { get; set; }
+        public DateTime SuspendPickUpStart { get; set; }
+        public DateTime SuspendPickUpEnd { get; set; }
+        //public double WalletBallence { get; set; }
         public double BalanceOwed { get; set; }
 
         [ForeignKey("IdentityUser")]

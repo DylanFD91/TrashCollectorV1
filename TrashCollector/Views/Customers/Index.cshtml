@@ -1,90 +1,74 @@
-﻿@model IEnumerable<TrashCollector.Models.Customer>
+﻿@model TrashCollector.Models.Customer
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Customer Profile</h1>
+<h1>Customer Account Info</h1>
 
-<p>
-    <a asp-action="Create">New Address</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PickUpDay)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Address)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ZipCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BalanceOwed)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdentityUser.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OneTimePickUp)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SuspendPickUpStart)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SuspendPickUpEnd)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PickUpDay)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ZipCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BalanceOwed)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdentityUser.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OneTimePickUp)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuspendPickUpStart)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SuspendPickUpEnd)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PickUpDay)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PickUpDay)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OneTimePickUp)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OneTimePickUp)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SuspendPickUpStart)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SuspendPickUpStart)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SuspendPickUpEnd)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SuspendPickUpEnd)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BalanceOwed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BalanceOwed)
+        </dd>
+    </dl>
+</div>
+    <tr>
+        <a asp-action="Edit" asp-route-id="@Model.CustomerId">Edit</a> |
+        <a asp-action="Details" asp-route-id="@Model.CustomerId">Details</a> |
+        <a asp-action="Delete" asp-route-id="@Model.CustomerId">Delete</a>
+    </tr>
